@@ -1,7 +1,7 @@
 import React from 'react'
 import {css, cx} from 'emotion'
 
-const Button = ({onClick, type, className, icon, highlighted, primary, active, hover, focus, children}) => (
+const Button = ({onClick, hover, focus, active, type, className, icon, highlighted, primary, danger, children}) => (
     <button
         type={type || 'button'}
         className={cx(css`
@@ -40,7 +40,7 @@ const Button = ({onClick, type, className, icon, highlighted, primary, active, h
             }
         `,
             hover || focus ? css`
-                -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.25);
+              -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.25);
                 -webkit-transform: translateY(-1px);
                 box-shadow: 0 2px 2px 0 rgba(0,0,0,.25);
                 transform: translateY(-1px);
@@ -56,9 +56,12 @@ const Button = ({onClick, type, className, icon, highlighted, primary, active, h
             background-color: #07f;
             color: #fff;
             font-weight: 700;
-            ` : css`
-
-            `,
+            ` : null,
+            danger ? css`
+            background-color: #f82b60;
+            color: #fff;
+            font-weight: 700;
+            ` : null,
             highlighted ? css`
                 &:before {
                     background-color: rgba(0,119,255,.1);
