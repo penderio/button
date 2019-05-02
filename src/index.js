@@ -63,27 +63,8 @@ const Button = ({onClick, hover, focus, active, type, className, icon, highlight
             font-weight: 700;
             ` : null,
             highlighted ? css`
-                &:before {
-                    background-color: rgba(0,119,255,.1);
-                    border: 3px solid #fff;
-                    border-radius: 5px;
-                    bottom: 0;
-                    content: "";
-                    left: 0;
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                }
-                &:after {
-                    border: 1px solid #07f;
-                    border-radius: 5px;
-                    bottom: 0;
-                    content: "";
-                    left: 0;
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                }
+                background-color: #07f;
+                color: #fff;
             ` : null,
             className
         )}

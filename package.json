@@ -1,6 +1,6 @@
 {
   "name": "@cmds/button",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Used for displaying a button.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "deploy": "cd demo/dist && surge --domain cmds-button.surge.sh",
+    "deploy": "cd demo/dist && surge --project ./ --domain cmds-button.surge.sh",
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
@@ -20,13 +20,12 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
   },
-  "dependencies": {
-    "@cmds/demo-utils": "^0.2.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "16.x"
   },
   "devDependencies": {
+    "@cmds/demo-utils": "^0.3.0",
     "@cmds/icons": "^0.2.0",
     "emotion": "^10.0.7",
     "nwb": "0.23.x",

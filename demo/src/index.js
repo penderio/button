@@ -38,6 +38,17 @@ class Demo extends Component {
                 </Button>
             </Box>
             <Paragraph>
+                Highlighted
+            </Paragraph>
+            <Box>
+                <Button
+                    icon={plus}
+                    highlighted
+                >
+                    Create
+                </Button>
+            </Box>
+            <Paragraph>
                 Danger
             </Paragraph>
             <Box>
@@ -87,17 +98,6 @@ class Demo extends Component {
                 <Button
                     icon={plus}
                 />
-            </Box>
-            <Paragraph>
-                Highlighted
-            </Paragraph>
-            <Box>
-                <Button
-                    icon={plus}
-                    highlighted
-                >
-                    Create
-                </Button>
             </Box>
         </Canvas>
     }
