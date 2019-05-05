@@ -49,6 +49,17 @@ class Demo extends Component {
                 </Button>
             </Box>
             <Paragraph>
+                Disabled
+            </Paragraph>
+            <Box>
+                <Button
+                    icon={trash}
+                    disabled
+                >
+                    Disabled
+                </Button>
+            </Box>
+            <Paragraph>
                 Danger
             </Paragraph>
             <Box>

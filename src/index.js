@@ -1,9 +1,10 @@
 import React from 'react'
-import {css, cx} from 'emotion'
+import { css, cx } from 'emotion'
 
-const Button = ({onClick, hover, focus, active, type, className, icon, highlighted, primary, danger, children}) => (
+const Button = ({ onClick, hover, focus, active, type, className, icon, highlighted, primary, danger, disabled, children }) => (
     <button
         type={type || 'button'}
+        disabled={disabled}
         className={cx(css`
             background: #fff;
             border: none;
@@ -25,21 +26,24 @@ const Button = ({onClick, hover, focus, active, type, className, icon, highlight
             white-space: nowrap;
             display: flex;
             align-items: center;
-            &:focus, &:hover {
-                -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.25);
-                -webkit-transform: translateY(-1px);
-                box-shadow: 0 2px 2px 0 rgba(0,0,0,.25);
-                transform: translateY(-1px);
-                outline: none;
-            }
-            &:active {
-                -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.25);
-                -webkit-transform: translateY(1px);
-                box-shadow: 0 1px 2px 0 rgba(0,0,0,.25);
-                transform: translateY(1px);
-            }
+            
         `,
-            hover || focus ? css`
+            !disabled ? css`
+        &:focus, &:hover {
+            -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.25);
+            -webkit-transform: translateY(-1px);
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.25);
+            transform: translateY(-1px);
+            outline: none;
+        }
+        &:active {
+            -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.25);
+            -webkit-transform: translateY(1px);
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,.25);
+            transform: translateY(1px);
+        }
+        ` : null,
+            !disabled && (hover || focus) ? css`
               -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.25);
                 -webkit-transform: translateY(-1px);
                 box-shadow: 0 2px 2px 0 rgba(0,0,0,.25);
@@ -65,6 +69,10 @@ const Button = ({onClick, hover, focus, active, type, className, icon, highlight
             highlighted ? css`
                 background-color: #07f;
                 color: #fff;
+            ` : null,
+            disabled ? css`
+                background-color: #e5e5e5;
+                color: #666666;
             ` : null,
             className
         )}
