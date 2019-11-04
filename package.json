@@ -1,6 +1,6 @@
 {
   "name": "@pndr/button",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Used for displaying a button.",
   "main": "lib/index.js",
   "module": "es/index.js",
