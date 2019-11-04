@@ -1,7 +1,7 @@
 import React from 'react'
 import { css, cx } from 'emotion'
 
-const Button = ({ onClick, hover, focus, active, type, className, icon, highlighted, primary, danger, disabled, children }) => {
+const Button = ({ onClick, size, hover, focus, active, type, className, icon, highlighted, primary, danger, disabled, children }) => {
 
     const styles = {
         default: {
@@ -93,30 +93,59 @@ const Button = ({ onClick, hover, focus, active, type, className, icon, highligh
         style = styles.highlighted
     }
 
+    const sizeStyles = {
+        sm: {
+            height: 30,
+            fontSize: 14,
+            padding: '0 10px',
+            iconOffset: 4,
+        },
+        md: {
+            height: 38,
+            fontSize: 16,
+            padding: '0 12px',
+            iconOffset: 4,
+        },
+        lg: {
+            height: 42,
+            fontSize: 18,
+            padding: '0 16px',
+            iconOffset: 6,
+        }
+    }
+
+    const sizeStyle = sizeStyles[size || 'md']
+
     return (
         <button
             type={type || 'button'}
             disabled={disabled}
             className={cx(
                 css`
+                display: inline-flex;
+                align-items: center;
                 background: #fff;
                 border: none;
                 border-radius: 6px;
                 cursor: pointer;
                 fill: currentColor;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 30px;
-                padding: 0 10px;
-                height: 30px;
+                font-size: 0;
                 position: relative;
-                text-align: center;
                 text-decoration: none;
                 transition: all .05s ease-out;
-                user-select: none;
+                padding: 0;
+                margin: 0;
                 white-space: nowrap;
-                display: flex;
-                align-items: center;
+                font-size: ${sizeStyle.fontSize}px;
+                font-weight: 400;
+                user-select: none;
+                height: ${sizeStyle.height}px;
+                line-height: ${sizeStyle.height}px;
+                padding: ${sizeStyle.padding};
+                flex: 0 1 auto;
+                text-decoration: none;
+                vertical-align: middle;
+                word-break: keep-all;
                 &:hover {
                     ${style.hover}
                 }
@@ -137,16 +166,17 @@ const Button = ({ onClick, hover, focus, active, type, className, icon, highligh
                 hover ? css(style.hover) : null,
                 focus ? css(style.focus) : null,
                 disabled ? css(style.disabled) : null,
+                className
             )}
             onClick={onClick}
         >
-            {icon ? icon({
-                height: 16,
-                className: children ? css`
-                    margin-right: 4px;
-                ` : null
-            }) : null}
-            {children}
+                {icon ? icon({
+                    height: 16,
+                    className: children ? css`
+                        margin-right: ${sizeStyle.iconOffset}px;
+                    ` : null
+                }) : null}
+                {children}
         </button>
     )
 }

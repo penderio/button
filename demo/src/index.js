@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {css} from 'emotion'
 import {Canvas, Box, Heading, Paragraph} from '@pndr/demo-utils'
 import {injectGlobal} from 'emotion'
 import {render} from 'react-dom'
@@ -27,16 +28,71 @@ class Demo extends Component {
     render() {
         return <Canvas>
             <Paragraph>
-                Default
+                Default (size sm)
             </Paragraph>
             <Box>
-                <Button>Click here</Button>
+                <Button
+                    size={'sm'}
+                    className={css`
+                        display: flex;
+                        margin-bottom: 20px;
+                    `}
+                    >
+                        Click here
+                </Button>
+                <Button
+                    icon={trash}
+                    size={'sm'}
+                    >
+                        Click here
+                </Button>
+            </Box>
+            <Paragraph>
+            Default (size md)
+            </Paragraph>
+            <Box>
+                <Button
+                    size={'md'}
+                    className={css`
+                        display: flex;
+                        margin-bottom: 20px;
+                    `}
+                    >
+                        Click here
+                </Button>
+                <Button
+                    icon={trash}
+                    size={'md'}
+                    >
+                        Click here
+                </Button>
+            </Box>
+            <Paragraph>
+            Default (size lg)
+            </Paragraph>
+            <Box>
+                <Button
+                    size={'lg'}
+                    className={css`
+                    display: flex;
+                    margin-bottom: 20px;
+                `}
+                    >
+                        Click here
+                </Button>
+                <Button
+                    icon={trash}
+                    size={'lg'}
+                    >
+                        Click here
+                </Button>
             </Box>
             <Paragraph>
                 Primary
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={plus2}
                     primary
                 >
@@ -48,6 +104,7 @@ class Demo extends Component {
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={plus2}
                     primary
                     hover
@@ -60,6 +117,7 @@ class Demo extends Component {
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={plus2}
                     primary
                     focus
@@ -72,6 +130,7 @@ class Demo extends Component {
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={plus2}
                     primary
                     disabled
@@ -84,6 +143,7 @@ class Demo extends Component {
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={plus2}
                     highlighted
                 >
@@ -95,6 +155,7 @@ class Demo extends Component {
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={trash}
                     disabled
                 >
@@ -106,6 +167,7 @@ class Demo extends Component {
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={trash}
                     danger
                 >
@@ -117,6 +179,7 @@ class Demo extends Component {
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={plus2}
                 >
                     Create
@@ -127,6 +190,7 @@ class Demo extends Component {
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={plus2}
                     hover
                 >
@@ -138,6 +202,7 @@ class Demo extends Component {
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={plus2}
                     active
                 >
@@ -149,6 +214,7 @@ class Demo extends Component {
             </Paragraph>
             <Box>
                 <Button
+                    size={'sm'}
                     icon={plus2}
                 />
             </Box>
