@@ -1,14 +1,14 @@
-import React, {Component} from 'react'
-import {css} from 'emotion'
-import {Canvas, Box, Heading, Paragraph} from '@pndr/demo-utils'
-import {injectGlobal} from 'emotion'
-import {render} from 'react-dom'
+import React, { Component } from 'react'
+import { css } from 'emotion'
+import { Canvas, Box, Heading, Paragraph } from '@pndr/demo-utils'
+import { injectGlobal } from 'emotion'
+import { render } from 'react-dom'
 import plus from '@pndr/icons/lib/plus'
 import trash from '@pndr/icons/lib/trash'
 
 const plus2 = props => (
     <svg {...props} viewBox="0 0 16 16">
-        <path d="M9 7h6a1 1 0 0 1 0 2H9v6a1 1 0 0 1-2 0V9H1a1 1 0 1 1 0-2h6V1a1 1 0 1 1 2 0z" fillRule="evenodd"/>
+        <path d="M9 7h6a1 1 0 0 1 0 2H9v6a1 1 0 0 1-2 0V9H1a1 1 0 1 1 0-2h6V1a1 1 0 1 1 2 0z" fillRule="evenodd" />
     </svg>
 )
 
@@ -37,18 +37,18 @@ class Demo extends Component {
                         display: flex;
                         margin-bottom: 20px;
                     `}
-                    >
-                        Click here
+                >
+                    Click here
                 </Button>
                 <Button
                     icon={trash}
                     size={'sm'}
-                    >
-                        Click here
+                >
+                    Click here
                 </Button>
             </Box>
             <Paragraph>
-            Default (size md)
+                Default (size md)
             </Paragraph>
             <Box>
                 <Button
@@ -57,18 +57,18 @@ class Demo extends Component {
                         display: flex;
                         margin-bottom: 20px;
                     `}
-                    >
-                        Click here
+                >
+                    Click here
                 </Button>
                 <Button
                     icon={trash}
                     size={'md'}
-                    >
-                        Click here
+                >
+                    Click here
                 </Button>
             </Box>
             <Paragraph>
-            Default (size lg)
+                Default (size lg)
             </Paragraph>
             <Box>
                 <Button
@@ -77,14 +77,97 @@ class Demo extends Component {
                     display: flex;
                     margin-bottom: 20px;
                 `}
-                    >
-                        Click here
+                >
+                    Click here
                 </Button>
                 <Button
                     icon={trash}
                     size={'lg'}
-                    >
-                        Click here
+                >
+                    Click here
+                </Button>
+            </Box>
+            <Paragraph>
+                Minimal - default
+            </Paragraph>
+            <Box>
+                <Button
+                    size={'sm'}
+                    minimal
+                >
+                    Click here
+                </Button>
+            </Box>
+            <Paragraph>
+                Minimal - primary
+            </Paragraph>
+            <Box>
+                <Button
+                    size={'sm'}
+                    primary
+                    minimal
+                    icon={trash}
+                    className={css`
+                        display: flex;
+                        margin-bottom: 20px;
+                    `}
+                >
+                    Click here
+                </Button>
+                <Button
+                    size={'sm'}
+                    primary
+                    minimal
+                >
+                    Click here
+                </Button>
+            </Box>
+            <Paragraph>
+                Minimal - danger
+            </Paragraph>
+            <Box>
+                <Button
+                    size={'sm'}
+                    danger
+                    minimal
+                    icon={trash}
+                    className={css`
+                        display: flex;
+                        margin-bottom: 20px;
+                    `}
+                >
+                    Click here
+                </Button>
+                <Button
+                    size={'sm'}
+                    danger
+                    minimal
+                >
+                    Click here
+                </Button>
+            </Box>
+            <Paragraph>
+                Minimal - highlighted
+            </Paragraph>
+            <Box>
+                <Button
+                    size={'sm'}
+                    highlighted
+                    minimal
+                    icon={trash}
+                    className={css`
+                        display: flex;
+                        margin-bottom: 20px;
+                    `}
+                >
+                    Click here
+                </Button>
+                <Button
+                    size={'sm'}
+                    highlighted
+                    minimal
+                >
+                    Click here
                 </Button>
             </Box>
             <Paragraph>
@@ -222,4 +305,4 @@ class Demo extends Component {
     }
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+render(<Demo />, document.querySelector('#demo'))

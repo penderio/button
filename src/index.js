@@ -1,9 +1,9 @@
 import React from 'react'
 import { css, cx } from 'emotion'
 
-const Button = ({ onClick, size, hover, focus, active, type, className, icon, highlighted, primary, danger, disabled, children }) => {
+const Button = ({ onClick, size, hover, focus, active, type, className, icon, highlighted, primary, danger, minimal, disabled, children }) => {
 
-    const styles = {
+    let styles = {
         default: {
             default: `
                 background-color: rgb(255, 255, 255);
@@ -36,7 +36,7 @@ const Button = ({ onClick, size, hover, focus, active, type, className, icon, hi
                 box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(0, 34, 253) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 3px 7px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
                 color: rgb(255, 255, 255);
                 `,
-                disabled: `
+            disabled: `
                     opacity: 0.7;
                 `
         },
@@ -73,10 +73,90 @@ const Button = ({ onClick, size, hover, focus, active, type, className, icon, hi
                 box-shadow: rgb(18, 36, 152) 0px 1px 0px 0px, rgb(0, 34, 253) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 2px 4px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(60, 66, 87, 0.22) 0px 3px 7px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
                 color: rgb(0, 34, 253);
                 `,
-                disabled: `
+            disabled: `
                     opacity: 0.7;
                 `
         },
+    }
+
+    if (minimal) {
+
+        styles = {
+            default: {
+                default: `
+                    background-color: rgb(255, 255, 255);
+                    transition: background-color 120ms ease-in 0s;
+                `,
+                hover: `
+                    background-color: rgba(55, 53, 47, 0.08);
+                `,
+                focus: `
+                background-color: rgba(55, 53, 47, 0.08);
+                box-shadow: rgba(58, 151, 212, 0.28) 0px 0px 0px 4px;
+            `,
+                disabled: `
+                    opacity: 0.7;
+                `
+            },
+            primary: {
+                default: `
+                background-color: rgb(255, 255, 255);
+                transition: background-color 120ms ease-in 0s;
+                color: rgb(0, 34, 253);
+                    `,
+                hover: `
+                background-color: rgba(0, 34, 253, 0.08);
+                color: rgb(0, 34, 253);
+                    `,
+                focus: `
+                    background-color: rgba(0, 34, 253, 0.08);
+                    color: rgb(0, 34, 253);
+                    box-shadow: rgba(58, 151, 212, 0.28) 0px 0px 0px 4px;
+                    `,
+                disabled: `
+                        opacity: 0.7;
+                    `
+            },
+            danger: {
+                default: `
+                    background-color: rgb(255, 255, 255);
+                    color: rgb(253, 11, 130);
+                    transition: background-color 120ms ease-in 0s;
+                `,
+
+                hover: `
+                    background-color: rgb(253, 11, 130, 0.08);
+                    color: rgb(253, 11, 130);
+                `,
+                focus: `
+                background-color: rgb(253, 11, 130, 0.08);
+                color: rgb(253, 11, 130);
+                box-shadow: rgba(58, 151, 212, 0.28) 0px 0px 0px 4px;
+                `,
+                disabled: `
+                    opacity: 0.7;
+                `
+            },
+            highlighted: {
+                default: `
+                background-color: rgba(0, 34, 253, 0.08);
+                transition: background-color 120ms ease-in 0s;
+                color: rgb(0, 34, 253);
+                    `,
+                hover: `
+                    background-color: rgba(0, 34, 253, 0.08);
+                    color: rgb(0, 34, 253);
+                        `,
+                focus: `
+                        background-color: rgba(0, 34, 253, 0.08);
+                        color: rgb(0, 34, 253);
+                        box-shadow: rgba(58, 151, 212, 0.28) 0px 0px 0px 4px;
+                        `,
+                disabled: `
+                        opacity: 0.7;
+                    `
+            },
+        }
     }
 
     let style = styles.default
@@ -170,13 +250,13 @@ const Button = ({ onClick, size, hover, focus, active, type, className, icon, hi
             )}
             onClick={onClick}
         >
-                {icon ? icon({
-                    height: 16,
-                    className: children ? css`
+            {icon ? icon({
+                height: 16,
+                className: children ? css`
                         margin-right: ${sizeStyle.iconOffset}px;
                     ` : null
-                }) : null}
-                {children}
+            }) : null}
+            {children}
         </button>
     )
 }
